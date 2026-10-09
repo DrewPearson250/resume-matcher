@@ -55,3 +55,4 @@ scores update right away.
 - Scanned (image-only) PDFs have no text layer, so they can't be read.
 - The education and experience parsers rely on common resume layouts. Unusual layouts may
   only be partly extracted.
+# resume-matcher
