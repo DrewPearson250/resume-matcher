@@ -1,58 +1,234 @@
-# Resume ↔ Internship Matcher
+Find opportunities. Discover skill gaps. Build your career.
 
-A Streamlit app that compares your resume against internship descriptions, scores each
-one, shows the skills you're missing, and ranks them in a dashboard.
+A Python-powered application that helps students identify relevant internships by comparing resumes with job descriptions using natural language processing (NLP) and text similarity techniques.
 
-## Setup
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white" alt="Python 3.10+"/>
+  <img src="https://img.shields.io/badge/Framework-Streamlit-FF4B4B?logo=streamlit&logoColor=white" alt="Streamlit"/>
+  <img src="https://img.shields.io/badge/Machine%20Learning-Scikit--learn-orange?logo=scikitlearn&logoColor=white" alt="Scikit-learn"/>
+  <img src="https://img.shields.io/badge/Status-In%20Development-yellow" alt="In Development"/>
+</p>
 
-```bash
+📌 Table of Contents
+
+Overview
+
+Features
+
+How It Works
+
+Tech Stack
+
+Getting Started
+
+Project Structure
+
+Future Improvements
+
+Disclaimer
+
+🎯 Overview
+
+Finding the right internship can be difficult, especially for students starting their careers in technology.
+
+AI-Powered Job & Internship Matcher is designed to make the search process more efficient by analyzing resume content and comparing it with internship requirements. It helps users understand how closely their experience aligns with a position and identify skills they may want to develop.
+
+The goal is to turn a time-consuming job search into a more organized, data-driven experience.
+
+✨ Features
+
+Feature
+
+Description
+
+📄 Resume Analysis
+
+Upload a PDF resume and extract its text for analysis.
+
+🎯 Compatibility Scoring
+
+Calculate resume-to-job-description similarity scores.
+
+🧠 NLP Matching
+
+Use TF-IDF and cosine similarity to compare relevant text.
+
+🔍 Skill Gap Analysis
+
+Identify job-related skills that may be missing from a resume.
+
+📊 Interactive Dashboard
+
+Display matching results and insights in a user-friendly interface.
+
+💾 Saved Opportunities
+
+Store and retrieve job listings using SQLite.
+
+Features listed above represent the planned functionality. Update this table as each feature is implemented.
+
+⚙️ How It Works
+
+<p align="center">
+  <strong>Upload Resume</strong> → <strong>Enter Job Description</strong> → <strong>Analyze Text</strong> → <strong>Review Match Results</strong>
+</p>
+
+1. Upload a resume
+
+The user provides a PDF resume containing education, experience, projects, and technical skills.
+
+2. Enter a job description
+
+The user pastes the description of a software engineering internship or other job opportunity.
+
+3. Analyze the text
+
+The application processes both documents and uses TF-IDF to represent their text numerically.
+
+4. Calculate similarity
+
+Cosine similarity measures how closely the resume and job description match in terms of their text.
+
+5. Review the results
+
+The user reviews the compatibility score and, when implemented, relevant skill gaps and saved opportunities.
+
+Important: A similarity score measures textual overlap, not the probability of receiving an interview or job offer.
+
+🛠️ Tech Stack
+
+Technology
+
+Purpose
+
+Python
+
+Core application logic and text processing
+
+Streamlit
+
+Interactive web application interface
+
+Scikit-learn
+
+TF-IDF vectorization and cosine similarity
+
+Pandas
+
+Data organization and processing
+
+SQLite
+
+Local storage for saved opportunities
+
+PyMuPDF
+
+PDF text extraction
+
+🚀 Getting Started
+
+Follow these steps to run the project locally.
+
+Prerequisites
+
+Python 3.10 or later
+
+Git
+
+pip
+
+1. Clone the repository
+
+Replace the example URL with your actual GitHub repository URL.
+
+git clone YOUR_GITHUB_REPOSITORY_URL
+
+2. Navigate to the project folder
+
+cd ai-internship-matcher
+
+3. Create a virtual environment
+
+macOS / Linux
+
 python3 -m venv .venv
 source .venv/bin/activate
+
+Windows
+
+python -m venv .venv
+.venv\Scripts\activate
+
+4. Install dependencies
+
 pip install -r requirements.txt
+
+5. Launch the application
+
 streamlit run app.py
-```
 
-To try it right away, upload `samples/sample_resume.pdf` and click **Load 5 sample
-internships** in the *Add / manage jobs* tab.
+Open the local URL shown in your terminal to access the application.
 
-## How it works
+📂 Project Structure
 
-| Step | File | What happens |
-|---|---|---|
-| Read PDF | `resume_parser.py` | Text is extracted with **PyMuPDF**, with **PyPDF2** as a fallback. |
-| Extract info | `resume_parser.py`, `skills.py` | The text is split into sections (Education, Experience, …). Skills are found with a taxonomy of ~90 skills and their aliases. Regexes pull out the degree, major, school, GPA, graduation year and experience entries. Implied skills are added too (PyTorch → Python, Machine Learning). |
-| Add jobs | `app.py`, `database.py` | Pasted descriptions are saved to **SQLite** (`resume_matcher.db`). The last resume is saved there as well, so it survives a page reload. |
-| Match | `matcher.py` | Each job's skills are sorted into **required** or **preferred**, based on headers like "Preferred:" and "Nice to have". Skills joined by "or" ("Java or C++") count as one requirement that either skill satisfies. |
-| Rank | `matcher.py`, `app.py` | Results go into a **pandas** DataFrame, sorted by score and shown in the dashboard. |
+A suggested organization for the project:
 
-### Scoring
+ai-internship-matcher/
+│
+├── app.py                 # Streamlit application
+├── matcher.py             # Text similarity and matching logic
+├── resume_parser.py       # Resume PDF processing
+├── requirements.txt       # Python dependencies
+├── README.md              # Project documentation
+├── .gitignore             # Files excluded from Git
+└── screenshots/
+    └── dashboard.png      # Application screenshot
 
-```
-skill coverage  = (matched required + 0.5 × matched preferred) / (required + 0.5 × preferred)
-text similarity = TF-IDF cosine similarity (scikit-learn, 1–2-grams), scaled ×2 and capped at 1
-match score     = 70% skill coverage + 30% text similarity
-```
+The structure can change as the application develops. Only include files that exist in your repository.
 
-If no known skills are found in a posting, the score falls back to text similarity alone.
-The weights are constants at the top of `matcher.py`.
+🔮 Future Improvements
 
-### Dashboard
+Integrate a job listings API to retrieve internship opportunities.
 
-- Summary metrics, plus a ranked table with match score, fit label, skill coverage and missing required skills
-- Bar chart of match scores
-- **Skills to learn next**: the missing skills that appear most often across your saved jobs
-- Per-job breakdown: matched, missing required, and missing preferred skills, plus other
-  high-weight keywords from the posting that aren't on your resume
-- CSV export
+Improve skill extraction with advanced NLP models.
 
-The *Resume details* tab lets you add or remove skills to correct the extraction, and the
-scores update right away.
+Add filters for location, job title, and required technologies.
 
-## Limitations
+Build a personalized dashboard for saved internships.
 
-- Skill detection is keyword-based. A skill that isn't in `skills.py` is only picked up
-  through the TF-IDF text similarity. Add aliases to `SKILL_ALIASES` to extend it.
-- Scanned (image-only) PDFs have no text layer, so they can't be read.
-- The education and experience parsers rely on common resume layouts. Unusual layouts may
-  only be partly extracted.
+Add automated tests for matching and document processing.
+
+Deploy the application using Streamlit Community Cloud.
+
+🎓 Learning Objectives
+
+This project explores practical software development concepts, including:
+
+Python programming and modular application design
+
+Natural language processing and text similarity
+
+Data processing and analysis
+
+Database integration and data persistence
+
+User interface development
+
+Testing, debugging, and technical documentation
+
+⚠️ Disclaimer
+
+This application is intended for educational and career-planning purposes. Matching scores are estimates based on textual similarity and should not be treated as definitive assessments of a candidate's qualifications.
+
+👨‍💻 Author
+
+Drew Pearson
+
+Computer Science Student
+
+GitHub Profile
+
+<p align="center">
+  <i>Built to make the internship search more organized, transparent, and data-driven.</i>
+</p>
 # resume-matcher
