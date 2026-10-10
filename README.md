@@ -39,10 +39,6 @@ The goal is to turn a time-consuming job search into a more organized, data-driv
 
 ✨ Features
 
-Feature
-
-Description
-
 📄 Resume Analysis
 
 Upload a PDF resume and extract its text for analysis.
@@ -225,15 +221,6 @@ Testing, debugging, and technical documentation
 
 This application is intended for educational and career-planning purposes. Matching scores are estimates based on textual similarity and should not be treated as definitive assessments of a candidate's qualifications.
 
-👨‍💻 Author
-
-Drew Pearson
-
-Computer Science Student
-
-GitHub Profile
-
 <p align="center">
   <i>Built to make the internship search more organized, transparent, and data-driven.</i>
 </p>
-# resume-matcher
