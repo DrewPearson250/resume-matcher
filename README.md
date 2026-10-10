@@ -6,7 +6,7 @@ A Python-powered application that helps students identify relevant internships b
   <img src="https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white" alt="Python 3.10+"/>
   <img src="https://img.shields.io/badge/Framework-Streamlit-FF4B4B?logo=streamlit&logoColor=white" alt="Streamlit"/>
   <img src="https://img.shields.io/badge/Machine%20Learning-Scikit--learn-orange?logo=scikitlearn&logoColor=white" alt="Scikit-learn"/>
-  <img src="https://img.shields.io/badge/Status-In%20Development-green" alt="Finished"/>
+  <img src="https://img.shields.io/badge/Status-Finished-green" alt="Finished"/>
 </p>
 
 📌 Table of Contents
@@ -66,6 +66,8 @@ Display matching results and insights in a user-friendly interface.
 Store and retrieve job listings using SQLite.
 
 Features listed above represent the planned functionality. Update this table as each feature is implemented.
+
+
 
 ⚙️ How It Works
 
