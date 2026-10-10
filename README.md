@@ -1,3 +1,5 @@
+# Internship Matcher #
+
 Find opportunities. Discover skill gaps. Build your career.
 
 A Python-powered application that helps students identify relevant internships by comparing resumes with job descriptions using natural language processing (NLP) and text similarity techniques.
@@ -6,7 +8,7 @@ A Python-powered application that helps students identify relevant internships b
   <img src="https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white" alt="Python 3.10+"/>
   <img src="https://img.shields.io/badge/Framework-Streamlit-FF4B4B?logo=streamlit&logoColor=white" alt="Streamlit"/>
   <img src="https://img.shields.io/badge/Machine%20Learning-Scikit--learn-orange?logo=scikitlearn&logoColor=white" alt="Scikit-learn"/>
-  <img src="https://img.shields.io/badge/Status-Finished-green" alt="Finished"/>
+  <img src="https://img.shields.io/badge/Status-Active-green" alt="Finished"/>
 </p>
 
 📌 Table of Contents
