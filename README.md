@@ -140,9 +140,7 @@ pip
 
 1. Clone the repository
 
-Replace the example URL with your actual GitHub repository URL.
-
-git clone YOUR_GITHUB_REPOSITORY_URL
+https://github.com/DrewPearson250/resume-matcher
 
 2. Navigate to the project folder
 
