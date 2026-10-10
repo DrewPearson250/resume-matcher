@@ -67,6 +67,7 @@ Store and retrieve job listings using SQLite.
 
 Features listed above represent the planned functionality. Update this table as each feature is implemented.
 
+<img width="1512" height="827" alt="Screenshot 2026-10-09 at 9 13 42 PM" src="https://github.com/user-attachments/assets/a3252187-e9fb-4ef8-b26a-57145edfdbaa" />
 
 
 ⚙️ How It Works
